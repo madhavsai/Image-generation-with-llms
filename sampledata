@@ -1,0 +1,42 @@
+{'scene': {'atmosphere': '', 'cameraAngle': '', 'composition': '', 'lighting': '', 'location': '', 'shotType': '', 'style': '', 'tone': ''}, 
+'usageType': 'Social Media', 
+'aspectRatio': '(4:3)', 
+'prompt': 'stadium',
+ 'category': 'scene',
+ 'promptType': 'classic', 
+ 'promptGuided': {'description': '', 'explaination': '', 'additionalInfo': ''}}
+
+ {'product': {'background': '', 'cameraAngle': '', 'composition': '', 'lighting': '', 'shotType': '', 'style': '', 'tone': ''}, 
+ 'usageType': 'Editorial', 
+ 'aspectRatio': '(4:3)', 
+ 'prompt': 'bag', 
+ 'category': 'product', 
+ 'promptType': 'classic',
+'promptGuided': {'description': '', 'explaination': '', 'additionalInfo': ''}}
+
+{'background': {'style': '', 'tone': '', 'type': ''}, 
+'usageType': 'Editorial',
+ 'aspectRatio': '(4:3)',
+  'prompt': 'sea',
+   'category': 'background',
+    'promptType': 'classic', 
+  'promptGuided': {'description': '', 'explaination': '', 'additionalInfo': ''}}
+
+
+
+{'people': {'background': '', 'cameraAngle': '', 'lighting': '', 'mood': '', 'shotType': '', 'style': '', 'tone': ''},
+ 'usageType': 'Editorial', 
+ 'aspectRatio': '(4:3)', 
+ 'prompt': 'doctor', 
+ 'category': 'people', 
+ 'promptType': 'classic',
+  'promptGuided': {'description': '', 'explaination': '', 'additionalInfo': ''}}
+
+
+  {'people': {'background': '', 'cameraAngle': '', 'lighting': '', 'mood': '', 'shotType': '', 'style': '', 'tone': ''}, 
+  'usageType': 'Editorial',
+   'aspectRatio': '(4:3)', 
+   'prompt': 'doctor', 
+   'category': 'people', 
+   'promptType': 'guided', 
+   'promptGuided': {'description': 'man', 'explaination': 'workshop', 'additionalInfo': 'working on tool'}}

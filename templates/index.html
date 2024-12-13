@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Generation Prompts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        select, input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+    <script>
+        function submitForm() {
+            const form = document.getElementById('promptForm');
+            const formData = new FormData(form);
+            const jsonData = {};
+
+            formData.forEach((value, key) => {
+                if (!jsonData[key]) {
+                    jsonData[key] = value;
+                } else {
+                    if (!Array.isArray(jsonData[key])) {
+                        jsonData[key] = [jsonData[key]];
+                    }
+                    jsonData[key].push(value);
+                }
+            });
+
+            fetch('/generate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jsonData)
+            }).then(response => response.json())
+              .then(data => console.log(data))
+              .catch(error => console.error('Error:', error));
+        }
+    </script>
+</head>
+<body>
+    <h1>Image Generation Prompts</h1>
+    <form id="promptForm">
+        <h2>Product</h2>
+        <label for="cameraAngle">Camera Angle:</label>
+        <select id="cameraAngle" name="cameraAngle">
+            <option value="Front">Front</option>
+            <option value="Side view">Side view</option>
+            <option value="Top down">Top down</option>
+            <option value="Angled">Angled</option>
+        </select><br>
+
+        <label for="shotType">Shot Type:</label>
+        <select id="shotType" name="shotType">
+            <option value="Standard">Standard</option>
+            <option value="Mid shot">Mid shot</option>
+            <option value="Close up">Close up</option>
+            <option value="Macro">Macro</option>
+            <option value="Wide angle">Wide angle</option>
+            <option value="High Angle">High Angle</option>
+            <option value="Low Angle">Low Angle</option>
+        </select><br>
+
+        <label for="lighting">Lighting:</label>
+        <select id="lighting" name="lighting">
+            <option value="Natural">Natural</option>
+            <option value="Artificial (Studio)">Artificial (Studio)</option>
+            <option value="Soft box">Soft box</option>
+            <option value="Ambient">Ambient</option>
+        </select><br>
+
+        <label for="composition">Composition:</label>
+        <select id="composition" name="composition">
+            <option value="Empty Space">Empty Space</option>
+            <option value="Minimal">Minimal</option>
+            <option value="Heavy">Heavy</option>
+        </select><br>
+
+        <label for="tone">Tone:</label>
+        <select id="tone" name="tone">
+            <option value="Neutral">Neutral</option>
+            <option value="Warm">Warm</option>
+            <option value="Cool">Cool</option>
+            <option value="Vibrant">Vibrant</option>
+            <option value="Earthy">Earthy</option>
+        </select><br>
+
+        <label for="style">Style:</label>
+        <select id="style" name="style">
+            <option value="Vintage">Vintage</option>
+            <option value="Modern">Modern</option>
+            <option value="Historical">Historical</option>
+            <option value="Futuristic">Futuristic</option>
+        </select><br>
+
+        <label for="background">Background:</label>
+        <select id="background" name="background">
+            <option value="Plain">Plain</option>
+            <option value="Natural surrounding">Natural surrounding</option>
+            <option value="Composed setting">Composed setting</option>
+            <option value="BG free">BG free</option>
+        </select><br>
+
+        <!-- Added Prompt Input -->
+        <label for="prompt">Prompt:</label>
+        <input type="text" id="prompt" name="prompt"><br>
+
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+</body>
+</html>
